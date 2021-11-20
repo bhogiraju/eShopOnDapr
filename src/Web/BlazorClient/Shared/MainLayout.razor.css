@@ -1,5 +1,5 @@
 .esh-app-header {
-    background: url('/images/header.jpg') center -2.7rem no-repeat, linear-gradient(90deg, #7979ac 0%, #7979ac 35%, #0d2092 65%, #0d2092 100%);
+    background:  center -2.7rem no-repeat, linear-gradient(90deg, #7979ac 0%, #7979ac 35%, #0d2092 65%, #0d2092 100%);
     background-size: 94rem, auto;
     height: 13rem;
     padding-top: 2.25rem;

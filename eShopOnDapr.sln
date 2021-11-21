@@ -70,7 +70,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorClient.Host", "src\We
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Healthchecks", "Healthchecks", "{60441B2A-69B7-4BD1-B4FE-CCA68DFF4311}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Healthchecks", "src\BuildingBlocks\Healthchecks\Healthchecks.csproj", "{8AA9B06A-8D20-4F3A-BD64-6DE81940B1E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Healthchecks", "src\BuildingBlocks\Healthchecks\Healthchecks.csproj", "{8AA9B06A-8D20-4F3A-BD64-6DE81940B1E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

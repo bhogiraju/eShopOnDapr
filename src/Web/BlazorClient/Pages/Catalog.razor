@@ -40,21 +40,35 @@
     @if (_catalogPage?.Count > 0)
     {
         <Pager ItemCount="@_catalogPage.Items.Count()"
-            TotalCount="@_catalogPage.Count"
-            PageIndex="@_catalogPage.PageIndex"
-            PageCount="@_catalogPage.PageCount"
-            OnClick="OnPageIndexChangedAsync"/>
+               TotalCount="@_catalogPage.Count"
+               PageIndex="@_catalogPage.PageIndex"
+               PageCount="@_catalogPage.PageCount"
+               OnClick="OnPageIndexChangedAsync" />
 
         <div class="esh-catalog-items row">
             @foreach (var item in _catalogPage.Items)
             {
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="esh-catalog-item @(!_isAuthenticated ? "is-disabled" : "")" @onclick="@(e => OnCatalogItemClickAsync(item))">
+                    <div class="esh-catalog-item" @onclick="@(e => OnCatalogItemClickAsync(item))">
+
                         <div class="esh-catalog-thumbnail-wrapper">
                             <div class="esh-catalog-thumbnail-icon d-flex justify-content-center">
-                                <img class="esh-catalog-thumbnail-icon-svg" src="images/add.svg" />
+                                @if (_isAuthenticated)
+                                {
+                                     <img class="esh-catalog-thumbnail-icon-svg" src="images/add.svg" />
+
+                                }
+                                else
+                                {
+                                    <Tooltip Text="Login required to Add">
+                                        <img class="esh-catalog-thumbnail-icon-svg" src="images/padlock.png" />
+                                    </Tooltip>
+
+                                }
                             </div>
+
                             <img class="esh-catalog-thumbnail" src="@item.GetPictureUrl(_settings)" />
+
                         </div>
                         <div class="esh-catalog-details d-flex justify-content-between align-items-center">
                             <div class="esh-catalog-name ml-3">
@@ -66,14 +80,15 @@
                         </div>
                     </div>
                 </div>
+
             }
         </div>
 
         <Pager ItemCount="@_catalogPage.Items.Count()"
-            TotalCount="@_catalogPage.Count"
-            PageIndex="@_catalogPage.PageIndex"
-            PageCount="@_catalogPage.PageCount"
-            OnClick="OnPageIndexChangedAsync"/>
+               TotalCount="@_catalogPage.Count"
+               PageIndex="@_catalogPage.PageIndex"
+               PageCount="@_catalogPage.PageCount"
+               OnClick="OnPageIndexChangedAsync" />
     }
     else if (_catalogPage != null)
     {
@@ -96,6 +111,8 @@
 
     [CascadingParameter]
     private Task<AuthenticationState> _authenticationStateTask { get; set; }
+
+
 
     protected override async Task OnInitializedAsync()
     {
@@ -150,7 +167,7 @@
     private async Task LoadBrandsAsync()
     {
         var brands = new List<CatalogBrand>
-        {
+{
             new CatalogBrand(-1, "All")
         };
 
@@ -169,7 +186,7 @@
     private async Task LoadTypesAsync()
     {
         var types = new List<CatalogType>
-        {
+{
             new CatalogType(-1, "All")
         };
 
